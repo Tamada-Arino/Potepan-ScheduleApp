@@ -1,0 +1,36 @@
+<h3>スケジュール変更</h3>
+
+<div class="container">
+  <%= render "shared/error", obj: @schedule %> 
+</div>
+
+<%= form_with model:@schedule do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :title, "タイトル" %></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :start_day, "開始日" %></td>
+    <td><%= f.date_select :start_day %></td>
+  </tr>
+    <tr>
+    <td><%= f.label :close_day, "終了日" %></td>
+    <td><%= f.date_select :close_day %></td>
+  </tr>
+    <tr>
+    <td><%= f.label :all_day, "終日" %></td>
+    <td><%= f.check_box :all_day, {}, true, false %></td>
+  </tr>
+    <tr>
+    <td><%= f.label :memo, "スケジュールメモ" %></td>
+    <td><%= f.text_area :memo %></td>
+  </tr>
+</table>
+
+<div class="container bg-light">
+<%= link_to"一覧にもどる", :schedules, class:"btn btn-outline-secondary" %>
+<%= f.submit"送信する", class:"btn btn-primary" %>
+</div>
+
+<% end %>
