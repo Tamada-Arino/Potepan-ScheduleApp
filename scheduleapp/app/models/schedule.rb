@@ -6,7 +6,7 @@ class Schedule < ApplicationRecord
   
   def date_check
     if close_day < start_day
-          errors.add(:close_day, 'は開始日より前の日を設定することはできません')
+          errors.add(:close_day, 'は、開始日以降の日付としてください。')
     end
   end
 end
